@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>carrossel de palavras</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        
+        <div class="slider">
+            <div class="item">
+                <h1>Jacob & Co</h1>
+                A empresa começou como uma pequena joalheria em Nova York, mas rapidamente se destacou por suas criações únicas e inovadoras. Jacob Arabo tinha uma visão de criar peças de joalheria que fossem verdadeiramente únicas e que capturassem a atenção de todos que as vissem.
+            </div>
+            <div class="item">
+                <h1>Rolex</h1>
+                A história da Rolex está intimamente associada ao espírito visionário de seu fundador, Hans Wilsdorf. Em 1905, aos 24 anos, Hans Wilsdorf fundou em Londres uma empresa especializada na distribuição de relógios. Wilsdorf já vislumbrava as vantagens de usar um relógio no pulso.
+            </div>
+            <div class="item">
+                <h1>Richard mille</h1>
+                O cofundador da marca que leva seu nome, Richard Mille, iniciou sua carreira na década de 1970 na relojoeira francesa Finhor. Depois de alguns anos ele decidiu criar sua própria marca para quebrar o “status quo” da relojoaria tradicional.
+            </div>
+            <div class="item">
+                <h1>Patek Philippe</h1>
+                Patek Philippe é uma empresa suíça fabricante de relógios de luxo. Foi fundada em 1851 por Antoni Patek e Adrien Philippe. É amplamente considerada, a par com a Rolex, Audemars Piguet, a mais luxuosa marca em horologia. Patek Philippe é um nome de topo quando se fala de fabricantes de relógios.
+            </div>
+            <div class="item">
+                <h1>Audemars Piguet</h1>
+                Audemars Piguet é um fabricante suíço de relógios de luxo mecânicos e de pulso, com sede em Le Brassus, Suíça. A empresa foi fundada por Jules Louis Audemars e Edward Auguste Piguet no Vale de Joux em 1875, adquirindo o nome de Audemars Piguet & Cie em 1881.
+            </div>
+            <div class="item">
+                <h1>Hublot</h1>
+                Em 1980, nasceu o primeiro relógio Hublot. Criado pelo empresário italiano e fundador da marca Carlo Crocco, ele deu forma a uma ideia poderosa: conceber um relógio prático com elementos resistentes. Deveria ser simples e confortável, um relógio clássico e esportivo com um design imediatamente reconhecível.
+            </div>
+            <div class="item">
+                <h1>cartier</h1>
+                Tudo começou com o Louis-Francois Cartier, após superar o seu mestre, Adolphe Picard, e comprar seu atêlie. Se engana quem pensa que seu começo foi humilde: a loja ficava em uma das ruas mais chiques de Paris, a Rue Montorgueil. A marca foi passando de geração em geração: em 1874 seu filho, Alfred assumiu a loja.
+            </div>
+            <button id="next">></button>
+            <button id="prev"><</button>
+        </div>
+    
+        <script src="main.js"></script>
+    </body>
+    </html>
+
+css
+
+ody{
+    background-image: 
+        linear-gradient(
+            to top right, #f2fa59, #000000
+        );
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: monospace;
+}
+.slider{
+    position: relative;
+    width: 100%;
+    height: 370px;
+    overflow: hidden;
+}
+.item{
+    position: absolute;
+    width: 200px;
+    height: 320px;
+    text-align: justify;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    transition: 0.5s;
+    left: calc(50% - 110px);
+    top: 0;
+}
+#next, #prev{
+    position: absolute;
+    top: 40%;
+    color: #fff;
+    background-color: transparent;
+    border: none;
+    font-size: xxx-large;
+    font-family: monospace;
+    font-weight: bold;
+    left: 400px;
+}
+#next{
+    left: unset;
+    right: 400px;
+}
+
+java
+
+let items = document.querySelectorAll('.slider .item');
+    let next = document.getElementById('next');
+    let prev = document.getElementById('prev');
+    
+    let active = 3;
+    function loadShow(){
+        let stt = 0;
+        items[active].style.transform = `none`;
+        items[active].style.zIndex = 1;
+        items[active].style.filter = 'none';
+        items[active].style.opacity = 1;
+        for(var i = active + 1; i < items.length; i++){
+            stt++;
+            items[i].style.transform = `translateX(${120*stt}px) scale(${1 - 0.2*stt}) perspective(16px) rotateY(-1deg)`;
+            items[i].style.zIndex = -stt;
+            items[i].style.filter = 'blur(5px)';
+            items[i].style.opacity = stt > 2 ? 0 : 0.6;
+        }
+        stt = 0;
+        for(var i = active - 1; i >= 0; i--){
+            stt++;
+            items[i].style.transform = `translateX(${-120*stt}px) scale(${1 - 0.2*stt}) perspective(16px) rotateY(1deg)`;
+            items[i].style.zIndex = -stt;
+            items[i].style.filter = 'blur(5px)';
+            items[i].style.opacity = stt > 2 ? 0 : 0.6;
+        }
+    }
+    loadShow();
+    next.onclick = function(){
+        active = active + 1 < items.length ? active + 1 : active;
+        loadShow();
+    }
+    prev.onclick = function(){
+        active = active - 1 >= 0 ? active - 1 : active;
+        loadShow();
+    }
