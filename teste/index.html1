@@ -1,0 +1,58 @@
+<html>
+<!--Aqui no head vão as configurações do código de vocês-->
+<head>
+    <!--Fontes-->
+    <link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+    <link rel="preconnect" href="https://fonts.gstatic.com&quot; crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&display=swap&quot; rel="stylesheet">
+
+    <!--Essa tag corrige erros de acentuação-->
+    <meta charset="UTF-8">
+    <!--CSS do site-->
+
+    <style>
+        /*Objetos*/
+        body{
+            font-family: 'Lato', sans-serif;
+            background: url(https://imagens.ne10.uol.com.br/veiculos/_midias/jpg/2022/10/17/bola_deouro-21891703.jpg?653fb94626f75);
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
+        img{
+            /*Alterar o tamanho da imagem*/
+            width: 40%;
+            border: 10px inset gold;
+        }
+
+
+       /*Classes*/
+       .letraVermelha{
+        color: red;
+       }
+
+       .letraAzul{
+        color: blue;
+       }
+
+       .letraBranca{
+        color: white;
+       }
+    </style>
+</head>
+<!--É a parte onde vocês já fizeram o código-->
+<body>
+    <center><p><a href="https://pt-br.imgbb.com/&quot; target="_">Clique aqui para ir para o site e upar sua imagem</a></p>
+    <center><h1 class="letraVermelha">Bola de Ouro 2023</h1></center>
+    <center><h2 class="letraAzul">Messi destrói Haaland e Mbappe e vence sua 8° bola de ouro</h2></center>
+    <!--A tag <br> pula uma linha-->
+    <center><img src="https://media.tenor.com/K7t0Fu6mxNkAAAAC/lesion-neymar.gif"></center&gt;
+    <br>
+    <center><h1>Lucas e Murilo choram ao saber que Messi ganhou a bola de ouro</h1></center>
+    <img src="https://i.ibb.co/F6BjFBZ/1698692579943.jpg"&gt;
+   
+    <br>
+</body>
+<html>
