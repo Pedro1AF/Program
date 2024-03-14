@@ -1,0 +1,89 @@
+/* Alteração geral do css do site "*" */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(45deg, #061de3, #e306ca);
+    font-family: Helvetica, sans-serif;
+    color: rgb(211, 211, 211);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 350px;
+    height: 500px;
+    perspective: 800px;
+}
+
+.container:hover > .card {
+    cursor: pointer;
+    transform: rotateY(180deg) rotateZ(180deg);
+}
+
+.card {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    transition: transform 1500ms;
+    transform-style: preserve-3d;
+}
+
+.front,
+.back {
+    height: 100%;
+    width: 100%;
+    border-radius: 2rem;
+    box-shadow: 0 0 5px 2px rgba(50, 50, 50, 0.25);
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.front {
+    background-image: url(https://cdn.discordapp.com/attachments/1209260666733731913/1211089891044233337/image-removebg-preview-1-1.png?ex=65ecee5a&is=65da795a&hm=7ec1fd1b98033711b3c722c424046e6c664f3e527e0f731aeae77ed28aab3a89&);
+}
+
+.back {
+    background-color: transparent;
+    transform: rotateY(180deg) rotateZ(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+}
+
+#logoum {
+    z-index: -10;
+    width: 350px;
+    height: 500px;
+    object-fit: cover;
+    align-items: center;
+    justify-content: center;
+    filter: blur(3px);
+    position: absolute;
+}
+
+.back a {   
+    text-decoration: none;
+    width: 120px;
+    display: inline-block;
+    text-align: center;
+    padding: 7px 5px;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    color: #fff;
+    margin-top: 30px;
+    transition: 0.5s;
+}
+
+.back a:hover {
+    background: #e306ca;
+    border: 1px solid #2f2;
+}
