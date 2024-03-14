@@ -1,0 +1,19 @@
+/* Alteração geral do css do site "*" */
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+h1 {
+    font-family: sans-serif;
+    text-align: center;
+    margin-top: 325px;
+    font-size: 150px;
+    font-weight: 800;
+    color: transparent;
+    /* código responsável por colocar a imagem de background na letra */
+    background-image: url(https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExem93enc3eHVkZXlhd3VwdDB3N2ZhdGNmMHdmanhjenYzOHR4ZXVidyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/nStIqbximVyKGtY1m3/giphy.gif);
+    background-position: center;
+    -webkit-background-clip:text;
+}

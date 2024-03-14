@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <!-- titulo site -->
+    <title>Texto com efeito psicodélico</title>
+
+    <!-- javascript -->
+    <!-- links de conexão de bibliotecas javacript -->
+    <script src="https://cdn.rawgit.com/bradley/Blotter/master/build/blotter.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Blotter/0.1.0/materials/channelSplitMaterial.min.js"></script>
+    
+    <!-- css -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <div id="main"></div>
+
+    <!-- código javascript -->
+<script>
+
+    container = document.getElementById("main");
+
+    var text = new Blotter.Text("WATCHES", {
+        family: "serif",
+        size: 150,
+        fill: "#000",
+        paddingLeft: 80,
+        paddingRight: 80,
+        paddingTop: 80,
+        paddingBottom: 80
+    })
+
+    var material = new Blotter.ChannelSplitMaterial();
+    material.uniforms.uOffset.value = 0.05;
+    material.uniforms.uRotation.value = 50;
+    material.uniforms.uApplyBlur.value = 1;
+    material.uniforms.uAnimateNoise.value = 0.3;
+
+    var blotter = new Blotter(material, {
+        texts: text
+    })
+
+    var scope = blotter.forText(text);
+
+    scope.appendTo(container);
+
+    // Efeito ativado pelo movimento do mouse
+
+    document.onmousemove = moveIt;
+    function moveIt(event) {
+        material.uniforms.uRotation.value = (event.clientX * .1);
+        material.uniforms.uOffset.value = (event.clientX * 0.0001);
+    }
+
+</script>
+</body>
+</html>
