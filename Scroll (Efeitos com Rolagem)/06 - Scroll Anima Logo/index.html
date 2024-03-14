@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="robert">
+    
+    <!-- titulo site -->
+    <title>LOGO VAI PRA CIMA FODA!</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- java -->
+    <!-- links de bibliotecas javascript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/ScrollTrigger.min.js"></script>
+
+</head>
+<body>
+
+    <!-- cabeçalho -->
+    <div class="nav">
+        <div class="items-left">
+            <a href="#">services</a>
+            <a href="#">rooms</a>
+        </div>
+        <div class="item-right">
+            <a href="#">booking</a>
+            <a href="#">contact</a>
+        </div>
+    </div>
+
+    <!-- titulo principal mais imagem -->
+    <div class="logo-container">
+        <h1 class="logo">PATEK</h1>
+    </div>
+    <div class="container"></div>
+    <div class="content">
+        <img src="img1.jpg" alt="">
+    </div>
+
+    <!-- código javascript -->
+    <script>
+
+        ScrollTrigger.create({
+            animation: gsap.from(".logo", {
+                y: "50vh",
+                scale: 6,
+                yPercent: -50,
+            }),
+            scrub: true,
+            trigger: ".content",
+            start: "top bottom",
+            endTrigger: ".content",
+            end: "top center"
+        });
+
+    </script>
+</body>
+</html>
