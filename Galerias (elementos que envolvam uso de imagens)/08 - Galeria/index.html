@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    
+    <!-- Seção com divisões em div de maneira correta e organizada para uma melhor estilização através do css -->
+    <section class="slider-container">
+        <div class="slider-images">
+            <div class="slider-img">
+                <img src="images/img1.jpg" alt="">
+                <h1>Mike</h1>
+                <div class="details">
+                    <h2>Mike</h2>
+                    <p>somos os mais fodas!</p>
+                </div>
+            </div>
+            <div class="slider-img">
+                <img src="images/img2.jpg" alt="">
+                <h1>Mike</h1>
+                <div class="details">
+                    <h2>Mike</h2>
+                    <p>somos os mais fodas!</p>
+                </div>
+            </div>
+            <div class="slider-img">
+                <img src="images/img3.jpg" alt="">
+                <h1>Mike</h1>
+                <div class="details">
+                    <h2>Mike</h2>
+                    <p>somos os mais fodas!</p>
+                </div>
+            </div>
+            <div class="slider-img active">
+                <img src="images/img4.webp" alt="">
+                <h1>Mike</h1>
+                <div class="details">
+                    <h2>Mike</h2>
+                    <p>somos os mais fodas!</p>
+                </div>
+            </div>
+            <div class="slider-img">
+                <img src="images/img1.jpg" alt="">
+                <h1>Mike</h1>
+                <div class="details">
+                    <h2>Mike</h2>
+                    <p>somos os mais fodas!</p>
+                </div>
+            </div>
+            <div class="slider-img">
+                <img src="images/img2.jpg" alt="">
+                <h1>Mike</h1>
+                <div class="details">
+                    <h2>Mike</h2>
+                    <p>somos os mais fodas!</p>
+                </div>
+            </div>
+            <div class="slider-img">
+                <img src="images/img3.jpg" alt="">
+                <h1>Mike</h1>
+                <div class="details">
+                    <h2>Mike</h2>
+                    <p>somos os mais fodas!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- link que garante comunicação entre o arquivo html e o arquivo css da pasta -->
+    <script src="js/jQuery.js"></script>
+
+    <!-- código javascript responsável pelas animações interativas do site -->
+    <script>
+
+        jQuery(document).ready(function($){
+
+            $('.slider-img').on('click', function(){
+                $('.slider-img').removeClass('active');
+                $(this).addClass('active');
+            })
+
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagens que rodam</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- java -->
+    <!-- Links que garantem comunicação direta entre bibliotecas de código javascript com o site e código html -->
+    <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/MotionPathPlugin.min.js"></script>
+    <script src="https://assets.codepen.io/16327/Flip.min.js"></script>
+
+</head>
+<body>
+
+    <!-- Cabeçalho -->
+    <div class="header">
+        <h1>human stories, <br /> Superhuman audiovisuals</h1>
+    </div>
+
+    <!-- Seção com divs separadas e organizadas para uma melhor visualização do código -->
+    <section class="slider-section">
+        <div class="wheel">
+            <div class="wheel__card">
+                <img src="./images/img2.jpg" alt="" />
+            </div>
+            <div class="wheel__card">
+                <img src="./images/img3.jpg" alt="" />
+            </div>
+            <div class="wheel__card">
+                <img src="./images/img2.jpg" alt="" />
+            </div>
+            <div class="wheel__card">
+                <img src="./images/img3.jpg" alt="" />
+            </div>
+            <div class="wheel__card">
+                <img src="./images/img2.jpg" alt="" />
+            </div>
+            <div class="wheel__card">
+                <img src="./images/img3.jpg" alt="" />
+            </div>
+            <div class="wheel__card">
+                <img src="./images/img2.jpg" alt="" />
+            </div>
+            <div class="wheel__card">
+                <img src="./images/img3.jpg" alt="" />
+            </div>
+            <div class="wheel__card">
+                <img src="./images/img2.jpg" alt="" />
+            </div>
+            <div class="wheel__card">
+                <img src="./images/img3.jpg" alt="" />
+            </div>
+            <div class="wheel__card">
+                <img src="./images/img2.jpg" alt="" />
+            </div>
+            <div class="wheel__card">
+                <img src="./images/img3.jpg" alt="" />
+            </div>
+            <div class="wheel__card">
+                <img src="./images/img2.jpg" alt="" />
+            </div>
+            <div class="wheel__card">
+                <img src="./images/img3.jpg" alt="" />
+            </div>
+            <div class="wheel__card">
+                <img src="./images/img2.jpg" alt="" />
+            </div>
+            <div class="wheel__card">
+                <img src="./images/img3.jpg" alt="" />
+            </div>
+            <div class="wheel__card">
+                <img src="./images/img2.jpg" alt="" />
+            </div>
+            <div class="wheel__card">
+                <img src="./images/img3.jpg" alt="" />
+            </div>
+            <div class="wheel__card">
+                <img src="./images/img2.jpg" alt="" />
+            </div>
+            <div class="wheel__card">
+                <img src="./images/img3.jpg" alt="" />
+            </div>
+            <div class="wheel__card">
+                <img src="./images/img2.jpg" alt="" />
+            </div>
+            <div class="wheel__card">
+                <img src="./images/img3.jpg" alt="" />
+            </div>
+            <div class="wheel__card">
+                <img src="./images/img2.jpg" alt="" />
+            </div>
+            <div class="wheel__card">
+                <img src="./images/img3.jpg" alt="" />
+            </div>
+            <div class="wheel__card">
+                <img src="./images/img2.jpg" alt="" />
+            </div>
+            <div class="wheel__card">
+                <img src="./images/img3.jpg" alt="" />
+            </div>
+            <div class="wheel__card">
+                <img src="./images/img2.jpg" alt="" />
+            </div>
+            <div class="wheel__card">
+                <img src="./images/img3.jpg" alt="" />
+            </div>
+            <div class="wheel__card">
+                <img src="./images/img2.jpg" alt="" />
+            </div>
+            <div class="wheel__card">
+                <img src="./images/img3.jpg" alt="" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Título -->
+    <div class="scroll-down">Scroll down</div>
+    <!-- Icon ao lado do título -->
+    <div class="scroll-down-icon">
+        <img src="https://storage.googleapis.com/studio-design-asset-files/projects/BXaxK3jMq7/s-61x9_2c6bd15e-43e5-4ebf-bf39-a6ff23fb93dd.svg" alt="">
+    </div>
+
+    <!-- Código javascript responsável pelas animações dos elementos img no site -->
+    <script>
+
+        gsap.registerPlugin("ScrollTrigger");
+    
+        let wheel = document.querySelector(".wheel");
+        let images = gsap.utils.toArray(".wheel__card");
+
+        function setup() {
+            let radius = wheel.offsetWidth / 2;
+            let center = wheel.offsetWidth / 2;
+            let total = images.length;
+            let slice = (2 * Math.PI) / total;
+
+            images.forEach((item, i) => {
+                let angle = i * slice;
+
+                let x = center + radius * Math.sin(angle);
+                let y = center + radius * Math.cos(angle);
+
+                gsap.set(item, {
+                    rotation: angle + "-rad",
+                    xPercent: -50,
+                    yPercent: -50,
+                    x: x,
+                    y: y,
+                });
+            });
+        }
+
+        gsap.to(".wheel", {
+            rotate: () => -360,
+            ease: "none",
+            duration: images.length,
+            scrollTrigger: {
+                start: 0,
+                end: "max",
+                scrub: 1,
+                snap: 1 / images.length,
+                invalidateOnRefresh: true,
+            },
+        });
+
+        setup();
+        window.addEventListener("resize", setup);
+    </script>
+</body>
+</html>
